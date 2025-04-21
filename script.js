@@ -36,3 +36,10 @@ static applyDiscount(products, discount) {
   
   const milk = new PerishableProductProperties("Milk", 7.5, 6, "2025-05-01");
   const yogurt = new PerishableProductProperties("Yogurt", 6.99, 14, "2025-04-30");
+
+// Part 4
+class Store {
+  constructor() {
+    this.inventory = [];
+  }
+}
