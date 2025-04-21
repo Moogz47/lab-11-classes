@@ -55,7 +55,6 @@ class Store {
 
 // Part 5: Testing the System
 
-
 // Product Output Container Function
 function printToPage(message) {
   const outputDiv = document.getElementById("output");
@@ -95,3 +94,47 @@ const searchName = "Mixed Nuts";
 const searchResult = groceryStore.findProductByName("Mixed Nuts");
 printToPage("=== SEARCH RESULT FOR 'Mixed Nuts' ===");
 printToPage(searchResult ? searchResult.toString() : "Product not found.");
+
+// Table to Display Products on Homepage
+function displayInventoryTable(products) {
+  const outputDiv = document.getElementById("output");
+  outputDiv.innerHTML = ""; // Clear previous output
+
+  const table = document.createElement("table");
+  table.classList.add("inventory-table");
+
+  // Table Header
+  const headerRow = document.createElement("tr");
+  const headers = ["Name", "Price ($)", "Quantity", "Expiration Date"];
+  headers.forEach(headerText => {
+    const th = document.createElement("th");
+    th.textContent = headerText;
+    headerRow.appendChild(th);
+  });
+  table.appendChild(headerRow);
+
+  // Table Rows
+  products.forEach(product => {
+    const row = document.createElement("tr");
+
+    const nameCell = document.createElement("td");
+    nameCell.textContent = product.name;
+    row.appendChild(nameCell);
+
+    const priceCell = document.createElement("td");
+    priceCell.textContent = product.price.toFixed(2);
+    row.appendChild(priceCell);
+
+    const quantityCell = document.createElement("td");
+    quantityCell.textContent = product.quantity;
+    row.appendChild(quantityCell);
+
+    const expirationCell = document.createElement("td");
+    expirationCell.textContent = product.expirationDate || "N/A";
+    row.appendChild(expirationCell);
+
+    table.appendChild(row);
+  });
+
+  outputDiv.appendChild(table);
+}
