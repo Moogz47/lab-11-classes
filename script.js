@@ -88,16 +88,16 @@ ProductProperties.applyDiscount(groceryStore.inventory, 0.15);
 
 // Print total inventory value after discount
 printToPage("=== INVENTORY AFTER 15% DISCOUNT ===");
+displayInventoryTable(groceryStore.inventory);
 printToPage("Total Inventory Value: $" + groceryStore.getInventoryValue().toFixed(2));
 
 // Find and print details of a specific product by name
 const searchName = "Mixed Nuts";
 const searchResult = groceryStore.findProductByName("Mixed Nuts");
-printToPage("=== INVENTORY AFTER 15% DISCOUNT ===");
-displayInventoryTable(groceryStore.inventory);
+printToPage("=== SEARCH RESULT FOR 'Mixed Nuts' ===");
 printToPage(searchResult ? searchResult.toString() : "Product not found.");
 
-// Table to Display Products with Discount on Homepage
+// Table to Display Products on Homepage
 function displayInventoryTable(products) {
   const outputDiv = document.getElementById("output");
   outputDiv.innerHTML = ""; // Clear previous output
