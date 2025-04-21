@@ -55,6 +55,15 @@ class Store {
 
 // Part 5: Testing the System
 
+
+// Product Output Container Function
+function printToPage(message) {
+  const outputDiv = document.getElementById("output");
+  const paragraph = document.createElement("p");
+  paragraph.textContent = message;
+  outputDiv.appendChild(paragraph);
+}
+
 // Create product instances
 const milk = new PerishableProductProperties("Milk", 7.5, 6, "2025-05-01");
 const yogurt = new PerishableProductProperties("Yogurt", 6.99, 14, "2025-04-30");
@@ -71,18 +80,18 @@ groceryStore.addProduct(cereal);
 groceryStore.addProduct(pasta);
 
 // Display value BEFORE discount
-console.log("=== INVENTORY BEFORE DISCOUNT ===");
-console.log("Total Inventory Value: $" + groceryStore.getInventoryValue().toFixed(2));
+printToPage("=== INVENTORY BEFORE DISCOUNT ===");
+printToPage("Total Inventory Value: $" + groceryStore.getInventoryValue().toFixed(2));
 
 // Apply 15% discount
 ProductProperties.applyDiscount(groceryStore.inventory, 0.15);
 
 // Print total inventory value after discount
-console.log("\n=== INVENTORY AFTER 15% DISCOUNT ===");
-console.log("Total Inventory Value: $" + groceryStore.getInventoryValue().toFixed(2));
+printToPage("=== INVENTORY AFTER 15% DISCOUNT ===");
+printToPage("Total Inventory Value: $" + groceryStore.getInventoryValue().toFixed(2));
 
 // Find and print details of a specific product by name
 const searchName = "Mixed Nuts";
-const searchResult = groceryStore.findProductByName(searchName);
-console.log(`\n=== SEARCH RESULT FOR "${searchName}" ===`);
-console.log(searchResult ? searchResult.toString() : "Product not found.");
+const searchResult = groceryStore.findProductByName("Mixed Nuts");
+printToPage("=== SEARCH RESULT FOR 'Mixed Nuts' ===");
+printToPage(searchResult ? searchResult.toString() : "Product not found.");
