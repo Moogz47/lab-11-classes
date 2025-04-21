@@ -26,3 +26,19 @@ body {
     margin-bottom: 20px;
     color: #2e2e2e;
   }
+
+  a {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #32cd32;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  a:hover {
+    background-color: #228b22;
+  }
