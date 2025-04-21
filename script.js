@@ -21,4 +21,11 @@ class ProductProperties {
       super(name, price, quantity);
       this.expirationDate = expirationDate;
     }
-  }  
+
+    toString() {
+      return `${super.toString()}, Expiration Date: ${this.expirationDate}`;
+    }
+  }
+  
+  const milk = new PerishableProductProperties("Milk", 7.5, 6, "2025-05-01");
+  const yogurt = new PerishableProductProperties("Yogurt", 6.99, 14, "2025-04-30");
