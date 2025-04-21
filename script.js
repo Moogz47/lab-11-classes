@@ -1,4 +1,4 @@
-// Part 1
+// Part 1: Base Class - ProductProperties
 class ProductProperties {
     constructor(name, price, quantity) {
       this.name = name;
@@ -14,7 +14,7 @@ class ProductProperties {
       return `Product: ${this.name}, Price: $${this.price.toFixed(2)}, Quantity: ${this.quantity}`;
     }
 
-// Part 3
+// Part 3: Static Method to Apply Discount
 static applyDiscount(products, discount) {
   products.forEach(product => {
     product.price = product.price * (1 - discount);
@@ -22,7 +22,7 @@ static applyDiscount(products, discount) {
   }
 }
 
-  // Part 2
+  // Part 2: Subclass - PerishableProductProperties
   class PerishableProductProperties extends ProductProperties {
     constructor(name, price, quantity, expirationDate) {
       super(name, price, quantity);
@@ -34,7 +34,7 @@ static applyDiscount(products, discount) {
     }
   }
 
-// Part 4
+// Part 4: Store Class
 class Store {
   constructor() {
     this.inventory = [];
@@ -53,13 +53,16 @@ class Store {
   }
 }
 
-// Part 5
+// Part 5: Testing the System
+
+// Create product instances
 const milk = new PerishableProductProperties("Milk", 7.5, 6, "2025-05-01");
 const yogurt = new PerishableProductProperties("Yogurt", 6.99, 14, "2025-04-30");
 const mixedNuts = new ProductProperties("Mixed Nuts", 12.0, 10);
 const cereal = new ProductProperties("Cereal", 4.5, 20);
 const pasta = new ProductProperties("Pasta", 2.75, 30);
 
+// Create store and add products
 const groceryStore = new Store();
 groceryStore.addProduct(milk);
 groceryStore.addProduct(yogurt);
